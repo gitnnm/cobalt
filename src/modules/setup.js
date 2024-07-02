@@ -39,15 +39,15 @@ function setup() {
                 console.log(Bright("\nCool! What's the domain this API instance will be running on? (localhost)\nExample: api.cobalt.tools"));
 
                 rl.question(q, apiURL => {
-                    ob.API_URL = `http://localhost:9000/`;
-                    ob.API_PORT = 9000;
+                    ob.API_URL = `0.0.0.0:80/`;
+                    ob.API_PORT = 80;
                     if (apiURL && apiURL !== "localhost") ob.API_URL = `https://${apiURL.toLowerCase()}/`;
 
-                    console.log(Bright("\nGreat! Now, what port will it be running on? (9000)"));
+                    console.log(Bright("\nGreat! Now, what port will it be running on? (80)"));
 
                     rl.question(q, apiPort => {
                         if (apiPort) ob.API_PORT = apiPort;
-                        if (apiPort && (apiURL === "localhost" || !apiURL)) ob.API_URL = `http://localhost:${apiPort}/`;
+                        if (apiPort && (apiURL === "localhost" || !apiURL)) ob.API_URL = `0.0.0.0:${apiPort}/`;
 
                         console.log(Bright("\nWhat will your instance's name be? Usually it's something like eu-nl aka region-country. (local)"));
 
@@ -71,8 +71,8 @@ function setup() {
                 console.log(Bright("\nAwesome! What's the domain this web app instance will be running on? (localhost)\nExample: cobalt.tools"));
     
                 rl.question(q, webURL => {
-                    ob.WEB_URL = `http://localhost:9001/`;
-                    ob.WEB_PORT = 9001;
+                    ob.WEB_URL = `0.0.0.0:80/`;
+                    ob.WEB_PORT = 80;
                     if (webURL && webURL !== "localhost") ob.WEB_URL = `https://${webURL.toLowerCase()}/`;
     
                     console.log(
@@ -80,7 +80,7 @@ function setup() {
                     )
                     rl.question(q, webPort => {
                         if (webPort) ob.WEB_PORT = webPort;
-                        if (webPort && (webURL === "localhost" || !webURL)) ob.WEB_URL = `http://localhost:${webPort}/`;
+                        if (webPort && (webURL === "localhost" || !webURL)) ob.WEB_URL = `0.0.0.0:${webPort}/`;
 
                         console.log(
                             Bright("\nOne last thing: what default API domain should be used? (api.cobalt.tools)\nIf it's hosted locally, make sure to include the port:") + Cyan(" localhost:9000")
