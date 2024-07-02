@@ -8,7 +8,7 @@ import { loadJSON } from "../modules/sub/loadFromFs.js";
 import { normalizeRequest } from "../modules/processing/request.js";
 import { env } from "../modules/config.js";
 
-env.apiURL = 'http://localhost:9000'
+env.apiURL = '0.0.0.0:80'
 let tests = loadJSON('./src/util/tests.json');
 
 let noTest = [];
